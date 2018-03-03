@@ -19,6 +19,14 @@ float KTY81_210(byte pin, const int resistor = 2200) {
   float delta1 = sqrt (delta);
   float x2 =(-b + delta1)/(2 * a);
   float temp1 = x2 + 25;
+
+  #ifdef KTY81_DEBUG
+    Serial.print("KTY81 (");
+    Serial.print(pin);
+    Serial.print(") ");
+    Serial.println(temp1);
+  #endif
+
   return temp1;
 }
 

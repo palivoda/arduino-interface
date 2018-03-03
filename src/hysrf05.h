@@ -21,7 +21,13 @@ byte HYSRF05(byte pinTrig, byte pinEcho, const short targetDistance = 15000) {
   short duration = pulseIn(pinEcho, HIGH, targetDistance);
 
   #ifdef HYSRF05_DEBUG
-    Serial.println(String("HYSRF05 (") + pinTrig ") = " + duration);
+    Serial.print("HYSRF05 (");
+    Serial.print(pinTrig);
+    Serial.print("->");
+    Serial.print(pinEcho);
+    Serial.print(") ");
+    Serial.print(duration);
+    Serial.println("cm");
   #endif
 
   if (duration == 0) duration = targetDistance; //set to max if no reading
@@ -29,4 +35,4 @@ byte HYSRF05(byte pinTrig, byte pinEcho, const short targetDistance = 15000) {
   return duration / 29 / 2; //return centemeters
 }
 
-#endif HYSRF05_h
+#endif

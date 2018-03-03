@@ -13,7 +13,10 @@ float divVin(float R1, float R2, byte pin) {
   float vOut =  vIn/(R2/(R1+R2));
 
   #ifdef DIVVIN_DEBUG
-    Serial.println(String("divVin: vIn=") + vIn "divVin: vOut=" + vOut );
+    Serial.print("divVin: vIn=");
+    Serial.print(vIn);
+    Serial.print("vOut=");
+    Serial.println(vOut);
   #endif
 
   return vOut;

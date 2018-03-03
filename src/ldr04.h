@@ -17,7 +17,10 @@ float LDR04(byte pin, const int Res1 = 2200) {
   float retVal = (Res2 / (Res1 + Res2)) * 100;
 
   #ifdef LDR04_DEBUG
-    Serial.println(String("_LDR04:") + retVal);
+    Serial.print("LDR04 (");
+    Serial.print(pin);
+    Serial.print(") ");
+    Serial.println(retVal);
   #endif
 
   return retVal;
